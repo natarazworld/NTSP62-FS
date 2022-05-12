@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+        
+        <!-- cfg java classes as spring beans -->
+        <bean id="dt" class="java.util.Date"/>
+        
+        <bean id="dt1" class="java.util.Date">
+           <property name="year"  value="115"/>  <!--  it takes it as 1900 + 115 -->
+           <property name="date" value="25"/>
+           <property name="month" value="5"/>
+        </bean>
+        
+        
+        <bean id="wmg"  class="com.nt.sbeans.WishMessageGenerator">
+               <property name="date"  ref="dt"/>
+              <!--  <property name="name" value="raja"/> -->
+         </bean>
+</beans>        
