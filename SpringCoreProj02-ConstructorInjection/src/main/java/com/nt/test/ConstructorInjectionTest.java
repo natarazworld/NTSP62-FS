@@ -17,13 +17,12 @@ public class ConstructorInjectionTest {
 		//FileSystemResource res=new FileSystemResource("src/main/java/com/nt/cfgs/applicationContext.xml");
 		//FileSystemResource res=new FileSystemResource("G:\\Worskpaces\\Spring\\NTSP62-FS\\SpringCoreProj02-ConstructorInjection\\src\\main\\java\\com\\nt\\cfgs\\applicationContext.xml");
 		
-		/*
-		 * // Hold the name and location of spring bean cfg file //ClassPathResource
-		 * res=new ClassPathResource("com/nt/cfgs/applicationContext.xml");
-		 * ClassPathResource res=new ClassPathResource("applicationContext.xml"); //
-		 * create spring Container (BeanFactory container) XmlBeanFactory factory=new
-		 * XmlBeanFactory(res);
-		 */
+		
+		  // Hold the name and location of spring bean cfg file
+		  ClassPathResource res=new ClassPathResource("applicationContext.xml"); //
+		  //create spring Container (BeanFactory container)
+		   XmlBeanFactory factory=new  XmlBeanFactory(res);
+		 
 		
 		 
 		
