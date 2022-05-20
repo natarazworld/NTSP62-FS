@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	                  http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- Dependent class cfg -->
+  <!--   <bean id="deptStartDt" class="java.util.Date">
+         <property name="year" value="110"/>
+         <property name="month" value="10"/>
+         <property name="date" value="23"/>
+    </bean>
+    <bean id="dept" class="com.nt.sbeans.Department">
+        <constructor-arg name="dno" value="1001"/>
+        <constructor-arg name="dname" value="Accounts"/>
+        <constructor-arg name="size" value="100"/>
+        <constructor-arg  name="startDate"  ref="deptStartDt"/>
+    </bean> -->
+    
+    <!-- target class cfgs -->
+   <!--  <bean id="empDOBDt" class="java.util.Date">
+         <property name="year" value="90"/>   the given value will be added to  1900
+         <property name="month" value="11"/>
+         <property name="date" value="5"/>
+    </bean>
+    <bean id="emp" class="com.nt.sbeans.Employee">
+        <property name="eno"  value="101"/>
+        <property name="ename" value="rajesh"/>
+        <property name="salary" value="3000"/>
+        <property name="dob"  ref="empDOBDt"/>
+        <property name="dept"  ref="dept"/>
+    </bean> -->
+    
+    <!-- Dependent class cfg -->
+    <bean id="deptStartDt"  class="java.util.Date"  p:year="110" p:month="10" p:date="23"/>
+    <bean id="dept"  class="com.nt.sbeans.Department"
+                               c:dno="1001" c:dname="Accounts" c:size="100" c:startDate-ref="deptStartDt"/>
+   <!-- Target class cfgs -->
+    <bean id="dobDt"  class="java.util.Date"  p:year="90"  p:month="11" p:date="5"/>
+    <bean id="emp"  class="com.nt.sbeans.Employee"  
+                                            p:eno="101" p:ename="rajesh" p:salary="90000" p:dob-ref="dobDt" p:dept-ref="dept"/>                               
+     
+
+</beans>
