@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+   <!-- Configure  Properites file  -->
+   <bean id="pphc" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="location"  value="com/nt/commons/App.properties"/>
+   </bean>
+   
+   <!-- Spring bean cfg -->
+   <bean id="emp"  class="com.nt.sbeans.EmployeeInfo">
+        <property name="empName"  value="${emp.name}"/>
+        <property name="empAge"  value="${emp.age}"/>
+        <property name="empAddrs"  value="${emp.addrs}"/>
+        <property name="os"  value="${os.name}"/>   <!-- os.name is system property (fixed name) -->
+        <property name="pathData"  value="${Path}"/>  <!--  Path is  env.. variable name (fixed name) -->
+   </bean>
+
+</beans>

@@ -17,6 +17,11 @@ public class CAndPNameSpaceTest {
 		//get Target Spring bean class obj ref
 		Employee emp=factory.getBean("emp",Employee.class);
 		System.out.println(emp);
+		System.out.println("_______________");
+		Employee emp1=factory.getBean("emp",Employee.class);
+		System.out.println(emp1);
+		System.out.println(emp.hashCode()+"  "+emp1.hashCode());
+
 
 	}//main
 }//class
