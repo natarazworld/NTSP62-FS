@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+   <!-- dependent spring bean cfg -->
+    <bean id="dt"  class="java.util.Date"/>
+    
+    <!--  target spring bean cfg -->
+    <bean id="wmg" class="com.nt.sbeans.WishMessageGenerator"/>
+    
+    <!-- Autowired related BeanPostProcessor -->
+  <!--   <bean id="aabp" class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
+  
+    <!-- Activate  mulitple annotation related BeanProcessors at time -->
+    <context:annotation-config/>
+
+</beans>
