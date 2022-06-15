@@ -6,7 +6,27 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
    <!-- dependent spring bean cfg -->
-    <bean id="dt"  class="java.util.Date"/>
+    <bean id="dt"  class="java.util.Date"   />
+    
+    <bean id="dt1"  class="java.util.Date"  >
+       <property name="year"  value="110"/>
+       <property name="month" value="11"/>
+       <property name="date" value="10"/>
+    </bean>
+    
+    <bean id="dt2"  class="java.util.Date"  >
+       <property name="year"  value="120"/>
+       <property name="month" value="11"/>
+       <property name="date" value="10"/>
+    </bean>
+    
+    <bean id="dt3"  class="java.util.Date"  >
+       <property name="year"  value="130"/>
+       <property name="month" value="11"/>
+       <property name="date" value="10"/>
+    </bean>
+    
+    
     
     <!--  target spring bean cfg -->
     <bean id="wmg" class="com.nt.sbeans.WishMessageGenerator"/>

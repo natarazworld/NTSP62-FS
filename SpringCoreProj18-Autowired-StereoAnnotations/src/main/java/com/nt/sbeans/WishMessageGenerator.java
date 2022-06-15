@@ -5,43 +5,18 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
+@Component("wmg")
 public class WishMessageGenerator {
 	  // HAS-A property;
-	
 	@Autowired
-	@Qualifier("dt")
     private   Date  date;
-    
 	
-	
-
-
-	 @Autowired
-	   public WishMessageGenerator(@Qualifier("dt2") Date  date) {
-		System.out.println("WishMessageGenerator:: 1-param costructor)");
-		this.date=date;
-		
+	public WishMessageGenerator() {
+		System.out.println("WishMessageGenerator:: 0-param constructor");
 	}
-	 
-	 
-	 @Autowired
-	   @Qualifier("dt3")
-	   public  void   assign(Date date) {
-	   	System.out.println("WishMessageGenerator.assign()");
-	   	this.date=date;
-	   }
-	 
-	  @Autowired
-		@Qualifier("dt1")
-		public void setDate(Date date) {
-			System.out.println("WishMessageGenerator.setDate()");
-			this.date=date;
-		}
-   
-  
     
-	 
 
     // b.method
     public  String  showWishMessage(String user) {
