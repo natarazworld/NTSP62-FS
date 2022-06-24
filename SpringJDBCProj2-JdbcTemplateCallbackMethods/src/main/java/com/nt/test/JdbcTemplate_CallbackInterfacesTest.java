@@ -1,6 +1,8 @@
 // JdbcTemplate_CallbackInterfacesTest.java
 package com.nt.test;
 
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.nt.dao.IEmployeeDAO;
@@ -17,6 +19,22 @@ public class JdbcTemplate_CallbackInterfacesTest {
 		 //invoke the b.method
 		 Employee emp=dao.getEmployeeByNo(7499);
 		 System.out.println(emp);
+		 }//try
+		 catch(Exception e) {
+			 e.printStackTrace();
+		 }
+		 
+		 System.out.println("------------------------");
+		 try {
+			 //invoke the b.method
+			 List<Employee>  list=dao.getEmployessByDesgs("CLERK", "MANAGER");
+			 list.forEach(emp->{
+				 System.out.println(emp);
+			 });
+			 System.out.println("___________");
+			 list.forEach(emp->		 System.out.println(emp)	 );
+			 System.out.println("___________");
+			 list.forEach(System.out::println);
 		 }//try
 		 catch(Exception e) {
 			 e.printStackTrace();
