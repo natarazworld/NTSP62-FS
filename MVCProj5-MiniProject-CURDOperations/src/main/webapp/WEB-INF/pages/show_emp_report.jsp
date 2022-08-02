@@ -15,7 +15,7 @@
               <td>${emp.job }  </td>
                <td>${emp.sal }  </td>
                <td><a href="employee_edit?no=${emp.empno}"><img src="resources/images/edit.jpeg" width="30px" height="30px"></a> </td>
-               <td><a href="employee_delete?no=${emp.empno}"><img src="resources/images/delete.jpeg" width="30px" height="30px"></a> </td>
+               <td><a href="employee_delete?no=${emp.empno}" onclick="return confirm('Do u want to Delete?')"><img src="resources/images/delete.jpeg" width="30px" height="30px"></a> </td>
           </tr>
         
         </c:forEach>
@@ -33,4 +33,7 @@
    
     <br><br>
                                     <h1 style="text-align:center">${resultMsg}</h1>
+                                    
+     <br><br>
+            <center> <a href="./" ><img src="resources/images/home.jpeg"  widht="50px" height="50px"></a>  </center>
                                     

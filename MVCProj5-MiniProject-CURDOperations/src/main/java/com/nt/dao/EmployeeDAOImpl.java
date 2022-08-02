@@ -13,6 +13,7 @@ import com.nt.model.Employee;
 @Repository("empDAO")
 public class EmployeeDAOImpl implements IEmployeeDAO {
 	private static final String  GET_ALL_EMPS="SELECT EMPNO,ENAME,JOB,SAL  FROM EMP";
+	
 
 	@Autowired
 	private  JdbcTemplate jt;
@@ -40,6 +41,39 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 	@Override
 	public int insert(Employee emp) {
 		int count=jt.update(INSERT_EMP_QUERY, emp.getEname(),emp.getJob(),emp.getSal());
+		return count;
+	}
+	
+	
+	private static final String   DELETE_EMP_BY_NO="DELETE FROM EMP WHERE EMPNO=?";
+	@Override
+	public int remove(int eno) {
+		int count=jt.update(DELETE_EMP_BY_NO,eno);
+		return count;
+	}
+	
+	private static final String   GET_EMP_BY_NO="SELECT EMPNO,ENAME,JOB,SAL FROM EMP WHERE EMPNO=?";
+	@Override
+	public Employee getEmployeeByNo(int no) {
+		 Employee emp=jt.queryForObject(GET_EMP_BY_NO,
+				                                                                  (rs,rownum)->{
+				                                                                	  // copying ResultSet obj record to Employee object
+				                                                                	  Employee e=new Employee();
+				                                                                	  e.setEmpno(rs.getInt(1));
+				                                                                	  e.setEname(rs.getString(2));
+				                                                                	  e.setJob(rs.getString(3));
+				                                                                	  e.setSal(rs.getFloat(4));
+				                                                                	  return e;
+				                                                                  },
+				                                                                  no);
+		
+		return emp;
+	}//method
+	
+	private static final String  UPDATE_EMP_BY_NO="UPDATE EMP SET ENAME=?,JOB=?,SAL=? WHERE EMPNO=?";
+	@Override
+	public int update(Employee emp) {
+		int count=jt.update(UPDATE_EMP_BY_NO, emp.getEname(),emp.getJob(),emp.getSal(),emp.getEmpno());
 		return count;
 	}
 

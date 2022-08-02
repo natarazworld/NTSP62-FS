@@ -28,4 +28,24 @@ public class EmployeeServiceMgmtImpl implements IEmployeeServiceMgmt {
 		return count==0?"Employee not registered":"Employee registered";
 	}
 
+	@Override
+	public String deleteEmployee(int eno) {
+		int count=empDAO.remove(eno);
+		return count==0?"Employee not removed":"Employee removed";
+	}
+	
+	@Override
+	public Employee fetchEmployeeByNo(int no) {
+		Employee emp=empDAO.getEmployeeByNo(no);
+		return emp;
+	}
+	
+	@Override
+	public String modifyEmployee(Employee emp) {
+	  //use DAO
+		int count=empDAO.update(emp);
+		
+		return count==0?" Employee not updated":"Employee  updated";
+	}
+
 }
